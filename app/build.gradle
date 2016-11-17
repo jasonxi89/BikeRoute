@@ -1,0 +1,37 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "com.cs4521.bikeroute"
+        minSdkVersion 19
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:design:23.1.1'
+
+    compile('com.amazonaws:aws-android-sdk-core:2.3.3')
+
+    // add the DynamoDB SDK and DynamoDB Object Mapper dependency
+    compile('com.amazonaws:aws-android-sdk-ddb:2.3.3')
+    compile('com.amazonaws:aws-android-sdk-ddb-mapper:2.3.3')
+
+    // add the Amazon API Gateway SDK
+    compile('com.amazonaws:aws-android-sdk-apigateway-core:2.3.3')
+}
